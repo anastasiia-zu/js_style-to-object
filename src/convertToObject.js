@@ -14,7 +14,9 @@ function convertToObject(sourceString) {
     .reduce((styles, style) => {
       const [key, value] = style.split(':').map((part) => part.trim());
 
-      styles[key] = value;
+      if (key && value !== undefined) {
+        styles[key] = value;
+      }
 
       return styles;
     }, {});
